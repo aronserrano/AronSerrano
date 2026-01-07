@@ -43,7 +43,6 @@
             color: var(--accent-hover);
         }
 
-        /* Header */
         header {
             background: radial-gradient(circle at top, #242424, #121212);
             padding: 70px 10% 50px;
@@ -55,13 +54,11 @@
             margin: 0;
             font-size: 2.6rem;
             font-weight: 700;
-            letter-spacing: 1px;
         }
 
         header p {
             margin-top: 12px;
             color: var(--text-muted);
-            font-size: 1.1rem;
         }
 
         nav {
@@ -74,7 +71,6 @@
             padding: 10px 18px;
             border-radius: 30px;
             border: 1px solid var(--border-soft);
-            background-color: transparent;
             transition: all 0.3s ease;
         }
 
@@ -84,7 +80,6 @@
             border-color: var(--accent);
         }
 
-        /* Sections */
         section {
             padding: 70px 10%;
             background-color: var(--bg-section);
@@ -110,22 +105,39 @@
             position: absolute;
             left: 0;
             bottom: -10px;
-            border-radius: 2px;
         }
 
-        /* Cards */
         .card {
             background-color: var(--bg-card);
             padding: 28px;
             border-radius: 18px;
             border: 1px solid var(--border-soft);
             box-shadow: 0 10px 30px rgba(0,0,0,0.4);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
-        .card:hover {
-            transform: translateY(-6px);
-            box-shadow: 0 18px 45px rgba(0,0,0,0.6);
+        /* About */
+        .about-wrapper {
+            display: flex;
+            gap: 30px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .about-img {
+            flex: 0 0 220px;
+            text-align: center;
+        }
+
+        .about-img img {
+            width: 220px;
+            height: 220px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 3px solid var(--accent);
+        }
+
+        .about-text {
+            flex: 1;
         }
 
         /* Skills */
@@ -138,11 +150,8 @@
         .skills-list span {
             padding: 10px 18px;
             border-radius: 30px;
-            background-color: transparent;
             border: 1px solid var(--border-soft);
-            font-size: 0.9rem;
             transition: all 0.3s ease;
-            cursor: default;
         }
 
         .skills-list span:hover {
@@ -158,29 +167,22 @@
             gap: 30px;
         }
 
-        .project-card h3 {
-            margin-top: 0;
-            margin-bottom: 12px;
-        }
-
         .project-card p {
-            font-size: 0.95rem;
             color: var(--text-muted);
         }
 
-        /* Lists */
-        ul {
-            padding-left: 20px;
+        /* Certifications */
+        .cert-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 25px;
         }
 
-        ul li {
-            margin-bottom: 10px;
-            color: var(--text-muted);
-        }
-
-        /* Contact */
-        .contact-info p {
-            margin: 10px 0;
+        .cert-card img {
+            width: 100%;
+            border-radius: 12px;
+            margin-bottom: 12px;
+            border: 1px solid var(--border-soft);
         }
 
         /* Footer */
@@ -192,18 +194,13 @@
             color: var(--text-muted);
         }
 
-        footer a {
-            margin: 0 10px;
-        }
-
-        /* Responsive */
         @media (max-width: 768px) {
-            header h1 {
-                font-size: 2.1rem;
+            .about-wrapper {
+                text-align: center;
             }
 
-            section {
-                padding: 60px 7%;
+            .about-img {
+                margin: auto;
             }
         }
     </style>
@@ -218,7 +215,6 @@
         <a href="#skills">Skills</a>
         <a href="#projects">Projects</a>
         <a href="#certifications">Certifications</a>
-        <a href="#activities">Activities</a>
         <a href="#contact">Contact</a>
     </nav>
 </header>
@@ -227,10 +223,18 @@
     <div class="container">
         <h2>About Me</h2>
         <div class="card">
-            <p>
-                IT student focused on modern web development and interactive interfaces.
-                Experienced in building responsive layouts, clean UI systems, and practical applications.
-            </p>
+            <div class="about-wrapper">
+                <div class="about-img">
+                    <!-- Replace profile.jpg with your image -->
+                    <img src="profile.jpg" alt="Profile Picture">
+                </div>
+                <div class="about-text">
+                    <p>
+                        IT student focused on modern web development and interactive interfaces.
+                        Experienced in building responsive layouts, clean UI systems, and practical applications.
+                    </p>
+                </div>
+            </div>
         </div>
     </div>
 </section>
@@ -257,18 +261,10 @@
         <h2>Projects</h2>
         <div class="projects-grid">
             <div class="card project-card">
-                <h3>Portfolio Website</h3>
+                <h3>Simple Game Project</h3>
                 <p>
-                    Personal portfolio built with modern HTML, CSS, and responsive layout.
-                    <br><a href="https://aronserrano.github.io/final-game/">View on GitHub</a>
-                </p>
-            </div>
-
-            <div class="card project-card">
-                <h3>Chat Application</h3>
-                <p>
-                    Real-time chat system using Node.js and Socket.io.
-                    <br><a href="https://github.com/username/chat-app">View on GitHub</a>
+                    A simple game made by me using HTML,JAVASCRIPT, and styling using CSS.
+                    <br><a href="https://aronserrano.github.io/final-game/">View Project</a>
                 </p>
             </div>
         </div>
@@ -278,11 +274,17 @@
 <section id="certifications">
     <div class="container">
         <h2>Certifications</h2>
-        <div class="card">
-            <ul>
-                <li>Cisco Networking Academy</li>
-                 <p>Certificate: <a href="https://www.credly.com/badges/458618b0-49de-4d1b-979c-0fc2ea147912/public_url</a></p>
-            </ul>
+        <div class="cert-grid">
+            <div class="card cert-card">
+                <!-- Replace cert1.jpg with certificate image -->
+                <img src="cert1.jpg" alt="Cisco Certificate">
+                <h3>Cisco Networking Academy</h3>
+                <p>
+                    <a href="https://www.credly.com/badges/458618b0-49de-4d1b-979c-0fc2ea147912/public_url" target="_blank">
+                        View Certificate
+                    </a>
+                </p>
+            </div>
         </div>
     </div>
 </section>
@@ -290,7 +292,7 @@
 <section id="contact">
     <div class="container">
         <h2>Contact</h2>
-        <div class="card contact-info">
+        <div class="card">
             <p>Email: aronmarcusserrano27@gmail.com</p>
             <p>GitHub: <a href="https://github.com/aronserrano">github.com/aronserrano</a></p>
         </div>
@@ -299,12 +301,8 @@
 
 <footer>
     <p>© 2026 Aron Marcus Serrano</p>
-    <p>
-        <a href="https://github.com/aronserrano">GitHub</a> |
-    </p>
+    <p><a href="https://github.com/aronserrano">GitHub</a></p>
 </footer>
 
 </body>
 </html>
-
-
