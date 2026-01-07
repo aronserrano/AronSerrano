@@ -5,21 +5,24 @@
     <title>Aron Marcus Serrano | IT Portfolio</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- Google Font -->
+    <!-- Font -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
     <style>
         :root {
-            --bg-main: #f5f1eb;
-            --bg-card: #ffffff;
-            --accent: #c2a57c;
-            --accent-dark: #a58963;
-            --text-main: #2f2f2f;
-            --text-muted: #6b6b6b;
+            --bg-main: #121212;
+            --bg-section: #1b1b1b;
+            --bg-card: #222222;
+            --accent: #c9a96a;
+            --accent-hover: #e1c78f;
+            --text-main: #f1f1f1;
+            --text-muted: #b5b5b5;
+            --border-soft: rgba(255,255,255,0.08);
         }
 
         * {
             box-sizing: border-box;
+            scroll-behavior: smooth;
         }
 
         body {
@@ -31,53 +34,61 @@
         }
 
         a {
-            color: var(--accent-dark);
+            color: var(--accent);
             text-decoration: none;
-            font-weight: 500;
+            transition: color 0.3s ease;
         }
 
         a:hover {
-            text-decoration: underline;
+            color: var(--accent-hover);
         }
 
         /* Header */
         header {
-            background: linear-gradient(135deg, #e8dfd1, #f5f1eb);
-            padding: 60px 10% 40px;
+            background: radial-gradient(circle at top, #242424, #121212);
+            padding: 70px 10% 50px;
             text-align: center;
+            border-bottom: 1px solid var(--border-soft);
         }
 
         header h1 {
             margin: 0;
-            font-size: 2.5rem;
+            font-size: 2.6rem;
             font-weight: 700;
+            letter-spacing: 1px;
         }
 
         header p {
-            margin-top: 10px;
+            margin-top: 12px;
             color: var(--text-muted);
             font-size: 1.1rem;
         }
 
         nav {
-            margin-top: 30px;
+            margin-top: 35px;
         }
 
         nav a {
-            margin: 0 12px;
-            padding: 8px 14px;
-            border-radius: 20px;
-            transition: background 0.3s;
+            display: inline-block;
+            margin: 6px;
+            padding: 10px 18px;
+            border-radius: 30px;
+            border: 1px solid var(--border-soft);
+            background-color: transparent;
+            transition: all 0.3s ease;
         }
 
         nav a:hover {
-            background-color: rgba(194, 165, 124, 0.2);
-            text-decoration: none;
+            background-color: var(--accent);
+            color: #121212;
+            border-color: var(--accent);
         }
 
-        /* Layout */
+        /* Sections */
         section {
-            padding: 60px 10%;
+            padding: 70px 10%;
+            background-color: var(--bg-section);
+            border-bottom: 1px solid var(--border-soft);
         }
 
         .container {
@@ -87,63 +98,69 @@
 
         section h2 {
             font-size: 2rem;
-            margin-bottom: 30px;
+            margin-bottom: 35px;
             position: relative;
-            display: inline-block;
         }
 
         section h2::after {
             content: "";
-            position: absolute;
-            left: 0;
-            bottom: -8px;
-            width: 60%;
+            width: 60px;
             height: 3px;
             background-color: var(--accent);
+            position: absolute;
+            left: 0;
+            bottom: -10px;
             border-radius: 2px;
         }
 
-        /* Card Style */
+        /* Cards */
         .card {
             background-color: var(--bg-card);
-            border-radius: 16px;
-            padding: 25px;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+            padding: 28px;
+            border-radius: 18px;
+            border: 1px solid var(--border-soft);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
-        /* About */
-        #about .card {
-            font-size: 1rem;
+        .card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 18px 45px rgba(0,0,0,0.6);
         }
 
         /* Skills */
         .skills-list {
             display: flex;
             flex-wrap: wrap;
-            gap: 12px;
-            margin-top: 10px;
+            gap: 14px;
         }
 
         .skills-list span {
-            background-color: #efe6d8;
-            color: var(--text-main);
-            padding: 10px 16px;
+            padding: 10px 18px;
             border-radius: 30px;
+            background-color: transparent;
+            border: 1px solid var(--border-soft);
             font-size: 0.9rem;
-            font-weight: 500;
+            transition: all 0.3s ease;
+            cursor: default;
+        }
+
+        .skills-list span:hover {
+            background-color: var(--accent);
+            color: #121212;
+            border-color: var(--accent);
         }
 
         /* Projects */
         .projects-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 25px;
+            gap: 30px;
         }
 
         .project-card h3 {
             margin-top: 0;
-            margin-bottom: 10px;
-            font-size: 1.2rem;
+            margin-bottom: 12px;
         }
 
         .project-card p {
@@ -158,35 +175,35 @@
 
         ul li {
             margin-bottom: 10px;
+            color: var(--text-muted);
         }
 
         /* Contact */
         .contact-info p {
-            margin: 8px 0;
+            margin: 10px 0;
         }
 
         /* Footer */
         footer {
-            background-color: #e8dfd1;
-            padding: 30px 10%;
+            background-color: #0e0e0e;
+            padding: 35px 10%;
             text-align: center;
             font-size: 0.9rem;
             color: var(--text-muted);
         }
 
         footer a {
-            margin: 0 8px;
+            margin: 0 10px;
         }
 
         /* Responsive */
         @media (max-width: 768px) {
             header h1 {
-                font-size: 2rem;
+                font-size: 2.1rem;
             }
 
-            nav a {
-                display: inline-block;
-                margin: 6px 6px;
+            section {
+                padding: 60px 7%;
             }
         }
     </style>
@@ -211,9 +228,8 @@
         <h2>About Me</h2>
         <div class="card">
             <p>
-                I am an IT student with a strong interest in web development and interactive applications.
-                I focus on building clean, responsive, and user-friendly interfaces while continuously
-                improving my programming and problem-solving skills.
+                IT student focused on modern web development and interactive interfaces.
+                Experienced in building responsive layouts, clean UI systems, and practical applications.
             </p>
         </div>
     </div>
@@ -243,7 +259,7 @@
             <div class="card project-card">
                 <h3>Portfolio Website</h3>
                 <p>
-                    Personal portfolio built using HTML, CSS, and JavaScript with responsive design.
+                    Personal portfolio built with modern HTML, CSS, and responsive layout.
                     <br><a href="https://github.com/username/portfolio">View on GitHub</a>
                 </p>
             </div>
@@ -251,7 +267,7 @@
             <div class="card project-card">
                 <h3>Chat Application</h3>
                 <p>
-                    Real-time chat app using Node.js and Socket.io with authentication features.
+                    Real-time chat system using Node.js and Socket.io.
                     <br><a href="https://github.com/username/chat-app">View on GitHub</a>
                 </p>
             </div>
@@ -265,7 +281,7 @@
         <div class="card">
             <ul>
                 <li>Google IT Support Professional Certificate</li>
-                <li>Coursera Web Development Bootcamp</li>
+                <li>Web Development Bootcamp (Coursera)</li>
                 <li>AWS Cloud Practitioner</li>
             </ul>
         </div>
@@ -277,9 +293,9 @@
         <h2>Extracurricular Activities</h2>
         <div class="card">
             <ul>
-                <li>Active member of Coding Club</li>
-                <li>IT Support volunteer for university events</li>
-                <li>Participant in programming competitions</li>
+                <li>Active Coding Club member</li>
+                <li>University IT Support Volunteer</li>
+                <li>Programming Competition Participant</li>
             </ul>
         </div>
     </div>
