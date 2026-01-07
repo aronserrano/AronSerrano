@@ -4,213 +4,305 @@
     <meta charset="UTF-8">
     <title>Aron Marcus Serrano | IT Portfolio</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
     <style>
-        /* General Styles */
+        :root {
+            --bg-main: #f5f1eb;
+            --bg-card: #ffffff;
+            --accent: #c2a57c;
+            --accent-dark: #a58963;
+            --text-main: #2f2f2f;
+            --text-muted: #6b6b6b;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
         body {
-            font-family: Arial, sans-serif;
             margin: 0;
-            padding: 0;
-            line-height: 1.6;
-            background-color: limegreen;
-            color: #333;
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--bg-main);
+            color: var(--text-main);
+            line-height: 1.7;
         }
 
         a {
+            color: var(--accent-dark);
             text-decoration: none;
-            color: #007bff;
+            font-weight: 500;
         }
 
         a:hover {
             text-decoration: underline;
         }
 
-        /* Header & Navigation */
+        /* Header */
         header {
-            background-color: #222;
-            color: #fff;
-            padding: 20px 10%;
+            background: linear-gradient(135deg, #e8dfd1, #f5f1eb);
+            padding: 60px 10% 40px;
             text-align: center;
         }
 
         header h1 {
             margin: 0;
-            font-size: 2rem;
+            font-size: 2.5rem;
+            font-weight: 700;
+        }
+
+        header p {
+            margin-top: 10px;
+            color: var(--text-muted);
+            font-size: 1.1rem;
         }
 
         nav {
-            margin-top: 10px;
+            margin-top: 30px;
         }
 
         nav a {
-            margin: 0 15px;
-            color: #fff;
-            font-weight: bold;
+            margin: 0 12px;
+            padding: 8px 14px;
+            border-radius: 20px;
+            transition: background 0.3s;
         }
 
-        /* Sections */
+        nav a:hover {
+            background-color: rgba(194, 165, 124, 0.2);
+            text-decoration: none;
+        }
+
+        /* Layout */
         section {
-            padding: 50px 10%;
-            max-width: 1000px;
-            margin: 0 auto;
+            padding: 60px 10%;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: auto;
         }
 
         section h2 {
-            font-size: 1.8rem;
-            margin-bottom: 20px;
-            color: #222;
-            border-bottom: 2px solid #007bff;
+            font-size: 2rem;
+            margin-bottom: 30px;
+            position: relative;
             display: inline-block;
-            padding-bottom: 5px;
+        }
+
+        section h2::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: -8px;
+            width: 60%;
+            height: 3px;
+            background-color: var(--accent);
+            border-radius: 2px;
+        }
+
+        /* Card Style */
+        .card {
+            background-color: var(--bg-card);
+            border-radius: 16px;
+            padding: 25px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+        }
+
+        /* About */
+        #about .card {
+            font-size: 1rem;
         }
 
         /* Skills */
-        .skills ul {
-            list-style: none;
-            padding: 0;
+        .skills-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 10px;
         }
 
-        .skills li {
-            display: inline-block;
-            margin: 5px 10px;
-            background: #007bff;
-            color: #fff;
-            padding: 8px 12px;
-            border-radius: 20px;
+        .skills-list span {
+            background-color: #efe6d8;
+            color: var(--text-main);
+            padding: 10px 16px;
+            border-radius: 30px;
             font-size: 0.9rem;
+            font-weight: 500;
         }
 
         /* Projects */
-        .projects .project {
-            background: #fff;
-            padding: 15px;
-            margin-bottom: 20px;
-            border-radius: 8px;
-            box-shadow: 0px 2px 5px rgba(0,0,0,0.1);
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
         }
 
-        .projects .project h3 {
+        .project-card h3 {
             margin-top: 0;
+            margin-bottom: 10px;
+            font-size: 1.2rem;
         }
 
-        /* Certifications & Activities */
-        .certifications ul,
-        .activities ul {
-            list-style-type: disc;
+        .project-card p {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+        }
+
+        /* Lists */
+        ul {
             padding-left: 20px;
+        }
+
+        ul li {
+            margin-bottom: 10px;
+        }
+
+        /* Contact */
+        .contact-info p {
+            margin: 8px 0;
         }
 
         /* Footer */
         footer {
-            background-color: #222;
-            color: #fff;
+            background-color: #e8dfd1;
+            padding: 30px 10%;
             text-align: center;
-            padding: 20px 10%;
+            font-size: 0.9rem;
+            color: var(--text-muted);
         }
 
         footer a {
-            color: #fff;
-            margin: 0 10px;
+            margin: 0 8px;
         }
 
         /* Responsive */
         @media (max-width: 768px) {
+            header h1 {
+                font-size: 2rem;
+            }
+
             nav a {
-                display: block;
-                margin: 10px 0;
+                display: inline-block;
+                margin: 6px 6px;
             }
         }
     </style>
 </head>
 <body>
 
-    <!-- Header -->
-    <header>
-        <h1>Aron Marcus Serrano</h1>
-        <p>IT Student | Aspiring Web Developer</p>
-        <nav>
-            <a href="#about">About</a>
-            <a href="#skills">Skills</a>
-            <a href="#projects">Projects</a>
-            <a href="#certifications">Certifications</a>
-            <a href="#activities">Activities</a>
-            <a href="#contact">Contact</a>
-        </nav>
-    </header>
+<header>
+    <h1>Aron Marcus Serrano</h1>
+    <p>IT Student • Aspiring Web Developer</p>
+    <nav>
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#certifications">Certifications</a>
+        <a href="#activities">Activities</a>
+        <a href="#contact">Contact</a>
+    </nav>
+</header>
 
-    <!-- About Section -->
-    <section id="about">
+<section id="about">
+    <div class="container">
         <h2>About Me</h2>
-        <p>
-            Write a brief professional narrative here. Include your career goals, strengths, and what makes you unique.  
-            Example: "I am an IT student passionate about web development, with experience in building interactive websites and small games. I enjoy solving complex problems and contributing to open-source projects."
-        </p>
-    </section>
+        <div class="card">
+            <p>
+                I am an IT student with a strong interest in web development and interactive applications.
+                I focus on building clean, responsive, and user-friendly interfaces while continuously
+                improving my programming and problem-solving skills.
+            </p>
+        </div>
+    </div>
+</section>
 
-    <!-- Skills Section -->
-    <section id="skills" class="skills">
+<section id="skills">
+    <div class="container">
         <h2>Skills</h2>
-        <ul>
-            <li>HTML</li>
-            <li>CSS</li>
-            <li>JavaScript</li>
-            <li>Python</li>
-            <li>Git & GitHub</li>
-            <li>React</li>
-            <li>Node.js</li>
-        </ul>
-    </section>
+        <div class="card">
+            <div class="skills-list">
+                <span>HTML</span>
+                <span>CSS</span>
+                <span>JavaScript</span>
+                <span>Python</span>
+                <span>Git & GitHub</span>
+                <span>React</span>
+                <span>Node.js</span>
+            </div>
+        </div>
+    </div>
+</section>
 
-    <!-- Projects Section -->
-    <section id="projects" class="projects">
+<section id="projects">
+    <div class="container">
         <h2>Projects</h2>
-        <div class="project">
-            <h3>Project 1: Portfolio Website</h3>
-            <p>Created a personal portfolio website using HTML, CSS, and JavaScript. Includes interactive elements and responsive design. <a href="https://github.com/username/portfolio">View on GitHub</a></p>
-        </div>
-        <div class="project">
-            <h3>Project 2: Chat App</h3>
-            <p>Developed a real-time chat application using Node.js and Socket.io. Implemented user authentication and message storage. <a href="https://github.com/username/chat-app">View on GitHub</a></p>
-        </div>
-        <!-- Add more projects here -->
-    </section>
+        <div class="projects-grid">
+            <div class="card project-card">
+                <h3>Portfolio Website</h3>
+                <p>
+                    Personal portfolio built using HTML, CSS, and JavaScript with responsive design.
+                    <br><a href="https://github.com/username/portfolio">View on GitHub</a>
+                </p>
+            </div>
 
-    <!-- Certifications Section -->
-    <section id="certifications" class="certifications">
+            <div class="card project-card">
+                <h3>Chat Application</h3>
+                <p>
+                    Real-time chat app using Node.js and Socket.io with authentication features.
+                    <br><a href="https://github.com/username/chat-app">View on GitHub</a>
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="certifications">
+    <div class="container">
         <h2>Certifications</h2>
-        <ul>
-            <li>Google IT Support Professional Certificate</li>
-            <li>Coursera: Web Development Bootcamp</li>
-            <li>AWS Cloud Practitioner Certification</li>
-        </ul>
-    </section>
+        <div class="card">
+            <ul>
+                <li>Google IT Support Professional Certificate</li>
+                <li>Coursera Web Development Bootcamp</li>
+                <li>AWS Cloud Practitioner</li>
+            </ul>
+        </div>
+    </div>
+</section>
 
-    <!-- Extracurricular Activities Section -->
-    <section id="activities" class="activities">
+<section id="activities">
+    <div class="container">
         <h2>Extracurricular Activities</h2>
-        <ul>
-            <li>Member of Coding Club – organized hackathons</li>
-            <li>Volunteered as IT Support for University Events</li>
-            <li>Participated in national programming competitions</li>
-        </ul>
-    </section>
+        <div class="card">
+            <ul>
+                <li>Active member of Coding Club</li>
+                <li>IT Support volunteer for university events</li>
+                <li>Participant in programming competitions</li>
+            </ul>
+        </div>
+    </div>
+</section>
 
-    <!-- Contact Section -->
-    <section id="contact">
+<section id="contact">
+    <div class="container">
         <h2>Contact</h2>
-        <p>Email: your.email@example.com</p>
-        <p>LinkedIn: <a href="https://linkedin.com/in/yourprofile">linkedin.com/in/yourprofile</a></p>
-        <p>GitHub: <a href="https://github.com/username">github.com/username</a></p>
-    </section>
+        <div class="card contact-info">
+            <p>Email: aronmarcusserrano27@gmail.com</p>
+            <p>GitHub: <a href="https://github.com/aronserrano">github.com/aronserrano</a></p>
+            <p>LinkedIn: <a href="https://linkedin.com/in/yourprofile">linkedin.com/in/yourprofile</a></p>
+        </div>
+    </div>
+</section>
 
-    <!-- Footer -->
-    <footer>
-        <p>&copy; 2026 Your Name | All Rights Reserved</p>
-        <p>
-            <a href="https://github.com/username">GitHub</a> |
-            <a href="https://linkedin.com/in/yourprofile">LinkedIn</a>
-        </p>
-    </footer>
+<footer>
+    <p>© 2026 Aron Marcus Serrano</p>
+    <p>
+        <a href="https://github.com/aronserrano">GitHub</a> |
+        <a href="https://linkedin.com/in/yourprofile">LinkedIn</a>
+    </p>
+</footer>
 
 </body>
-
 </html>
